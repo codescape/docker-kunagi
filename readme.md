@@ -22,6 +22,9 @@ This guide expects you to have Homebrew and Cask installed.
 
     # create and run image on Dockerfile
     docker build -t kunagi . 
-    docker run -d -p 40000:8080 kunagi
+    docker run -d -p 8080:8080 kunagi
 
-Now your Docker image is created and started. The port 40000 will be redirect to the internal port 8080 where your Apache Tomcat instance is running. If everything went fine you can now access the Kunagi instance on [http://localhost:40000/kunagi]().
+    # forward port from the virtual box (only osx)
+    VBoxManage controlvm boot2docker-vm natpf1 "8080,tcp,127.0.0.1,8080,,8080"
+
+Now your Docker image is created and started. The external port 8080 will be redirect to the internal port 8080 where your Apache Tomcat instance is running. If everything went fine you can now access the Kunagi instance on [http://localhost:40000/kunagi]().
