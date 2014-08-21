@@ -23,3 +23,5 @@ This guide expects you to have Homebrew and Cask installed.
     # create and run image on Dockerfile
     docker build -t kunagi . 
     docker run -d -p 40000:8080 kunagi
+
+Now your Docker image is created and started. The port 40000 will be redirect to the internal port 8080 where your Apache Tomcat instance is running. If everything went fine you can now access the Kunagi instance on [http://localhost:40000/kunagi]().

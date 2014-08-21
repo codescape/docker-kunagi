@@ -18,7 +18,7 @@ RUN tar xzf /tmp/apache-tomcat-7.0.55.tar.gz -C /opt
 # delete downloaded file
 RUN rm /tmp/apache-tomcat-7.0.55.tar.gz
 
-# The following volumes should not be considered part of the image, but contain runtime data
+# ignore the following volumes containing runtime data as part of the image 
 VOLUME ["/opt/apache-tomcat-7.0.55/logs", "/opt/apache-tomcat-7.0.55/work", "/opt/apache-tomcat-7.0.55/temp", "/tmp/hsperfdata_root"]
 
 # set environment variables and add to path
@@ -31,7 +31,8 @@ RUN wget -nv --no-cookies http://kunagi.org/releases/0.26/kunagi.war -O /tmp/kun
 # move kunagi into tomcat webapps 
 RUN cp /tmp/kunagi.war /opt/apache-tomcat-7.0.55/webapps/kunagi.war
 
-# Start Tomcat in the foreground (run) to make sure docker does not immediately shutdown the container
-CMD ["/opt/apache-tomcat-7.0.55/bin/catalina.sh", "run"]
-
+# expose the Apache Tomcat default port
 EXPOSE 8080
+
+# start Apache Tomcat in the foreground (run) to make sure Docker does not immediately shutdown the container
+CMD ["/opt/apache-tomcat-7.0.55/bin/catalina.sh", "run"]
