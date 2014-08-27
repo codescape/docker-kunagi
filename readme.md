@@ -1,5 +1,5 @@
-Kunagi on Docker
-================
+Docker Kunagi
+=============
 
 This small project was initially developed during a coding afternoon at my employer together with a peer. Please bear in mind that this was our first attempt to bring a Docker configuration up and running. So it might be far from optimal but we managed to get a Kunagi instance started on the provided Apache Tomcat instance.
 
